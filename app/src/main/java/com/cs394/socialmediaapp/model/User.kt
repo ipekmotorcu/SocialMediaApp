@@ -1,4 +1,4 @@
-package com.cs394.socialmediaapp.Model
+package com.cs394.socialmediaapp.model
 
 data class User(
 
