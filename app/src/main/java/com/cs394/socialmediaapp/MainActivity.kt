@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         // Load PostListFragment into the container
         if (savedInstanceState == null) {
             loadFragment(PostListFragment())
