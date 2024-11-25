@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cs394.socialmediaapp.adapter.PostAdapter
 import com.cs394.socialmediaapp.Controller.PostController
 import com.cs394.socialmediaapp.databinding.FragmentPostListBinding
+import com.cs394.socialmediaapp.R
 
 class PostListFragment : Fragment() {
 
@@ -23,6 +25,11 @@ class PostListFragment : Fragment() {
     ): View? {
         _binding = FragmentPostListBinding.inflate(inflater, container, false)
         setupRecyclerView() // Ensure RecyclerView is set up here
+
+        binding.uploadButton.setOnClickListener{
+            view?.findNavController()?.navigate(R.id.action_postListFragment_to_newPostFragment)
+        }
+
         return binding.root
     }
 
