@@ -3,23 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/postListFragment">
+    app:startDestination="@id/loginFragment">
 
+    <!-- LoginFragment -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.cs394.socialmediaapp.view.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_postListFragment"
+            app:destination="@id/postListFragment" />
+    </fragment>
+    <!-- PostListFragment -->
     <fragment
         android:id="@+id/postListFragment"
         android:name="com.cs394.socialmediaapp.view.PostListFragment"
-        android:label="PostListFragment" >
+        android:label="PostListFragment"
+        tools:layout="@layout/fragment_post_list">
+
+        <!-- Action: Navigate to NewPostFragment -->
         <action
             android:id="@+id/action_postListFragment_to_newPostFragment"
             app:destination="@id/newPostFragment" />
     </fragment>
+
+    <!-- NewPostFragment -->
     <fragment
         android:id="@+id/newPostFragment"
         android:name="com.cs394.socialmediaapp.Fragment.NewPostFragment"
-        android:label="fragment_new_post"
-        tools:layout="@layout/fragment_new_post" >
+        android:label="NewPostFragment"
+        tools:layout="@layout/fragment_new_post">
+
+        <!-- Action: Navigate back to PostListFragment -->
         <action
             android:id="@+id/action_newPostFragment_to_postListFragment"
             app:destination="@id/postListFragment" />
     </fragment>
+
 </navigation>

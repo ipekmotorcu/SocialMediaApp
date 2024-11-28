@@ -1,4 +1,4 @@
-package com.example.app.fragments
+package com.cs394.socialmediaapp.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -37,14 +37,14 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginUser(email: String, password: String) {
-        if (email.isEmpty() || password.isEmpty()) {
+        /*if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
             return
-        }
+        }*/
 
         // Navigate to PostListFragment upon successful "login"
         Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
         //navigation shoul be implement
-       // findNavController().navigate(R.id.action_loginFragment_to_postListFragment)
+        findNavController().navigate(R.id.action_loginFragment_to_postListFragment)
     }
 }

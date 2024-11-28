@@ -2,10 +2,8 @@ package com.cs394.socialmediaapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.cs394.socialmediaapp.view.PostListFragment
+import androidx.navigation.fragment.NavHostFragment
 import com.cs394.socialmediaapp.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,16 +16,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Find the NavHostFragment and NavController
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
-        // Load PostListFragment into the container
-        if (savedInstanceState == null) {
-            loadFragment(PostListFragment())
-        }
-    }
 
-    private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(binding.fragmentContainer.id, fragment)
-            .commit()
     }
 }
