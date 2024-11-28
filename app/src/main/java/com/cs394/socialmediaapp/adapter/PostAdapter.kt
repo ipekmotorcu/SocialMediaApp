@@ -3,10 +3,9 @@ package com.cs394.socialmediaapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.cs394.socialmediaapp.model.Post
+import com.cs394.socialmediaapp.Model.Post
 import com.cs394.socialmediaapp.databinding.RecyclerViewRowBinding
 import com.cs394.socialmediaapp.databinding.RecyclerViewRowBinding.*
-import coil.load
 
 
 class PostAdapter(private val postList: List<Post>) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {

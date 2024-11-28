@@ -1,7 +1,7 @@
 package com.cs394.socialmediaapp.Controller
 
 import com.cs394.socialmediaapp.R
-import com.cs394.socialmediaapp.model.Post
+import com.cs394.socialmediaapp.Model.Post
 
 class PostController {
 
