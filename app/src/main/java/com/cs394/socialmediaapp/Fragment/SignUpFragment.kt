@@ -40,14 +40,14 @@ class SignUpFragment : Fragment() {
     }
 
     private fun signUpUser(name: String, email: String, password: String) {
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+       /* if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
             return
-        }
+        }*/
 
         // Mock "sign-up" success
         Toast.makeText(context, "Sign Up Successful", Toast.LENGTH_SHORT).show()
         // here should be navigation
-    // findNavController().navigate(R.id.action_signUpFragment_to_postListFragment)
+     findNavController().navigate(R.id.action_signUpFragment_to_postListFragment)
     }
 }

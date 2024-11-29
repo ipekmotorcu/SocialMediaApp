@@ -24,7 +24,7 @@ class PostListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPostListBinding.inflate(inflater, container, false)
-        setupRecyclerView() // Ensure RecyclerView is set up here
+        setupRecyclerView() //Ensure RecyclerView
 
         binding.uploadButton.setOnClickListener{
             view?.findNavController()?.navigate(R.id.action_postListFragment_to_newPostFragment)
