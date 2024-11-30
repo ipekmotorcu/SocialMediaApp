@@ -30,6 +30,13 @@ class PostController {
                 likes = 50,
                 userid = "user3_id",
                 downloadUrl = R.drawable.sea
+            ), Post(
+                username = "İrem",
+                time = System.currentTimeMillis(),
+                caption = "Loving this new app!",
+                likes = 150,
+                userid = "user4_id",
+                downloadUrl = R.drawable.sahil
             )
         )
     }
