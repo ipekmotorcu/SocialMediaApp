@@ -22,5 +22,6 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
 
+
     }
 }
