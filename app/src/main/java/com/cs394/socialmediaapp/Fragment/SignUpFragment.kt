@@ -1,53 +1,62 @@
-package com.example.app.fragments
+package com.cs394.socialmediaapp.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+
 import com.cs394.socialmediaapp.R
+import com.cs394.socialmediaapp.viewmodel.SignUpViewModel
+import com.cs394.socialmediaapp.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
 
-    private lateinit var nameEditText: EditText
-    private lateinit var emailEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var signUpButton: Button
+    // View binding
+    private var _binding: FragmentSignUpBinding? = null
+    private val binding get() = _binding!!
+
+
+    private val viewModel: SignUpViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
-
-        nameEditText = view.findViewById(R.id.nameEditText)
-        emailEditText = view.findViewById(R.id.emailEditText)
-        passwordEditText = view.findViewById(R.id.passwordEditText)
-        signUpButton = view.findViewById(R.id.signUpButton)
-
-        signUpButton.setOnClickListener {
-            val name = nameEditText.text.toString()
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
-            signUpUser(name, email, password)
-        }
-
-        return view
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    private fun signUpUser(name: String, email: String, password: String) {
-       /* if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
-            return
-        }*/
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        // Mock "sign-up" success
-        Toast.makeText(context, "Sign Up Successful", Toast.LENGTH_SHORT).show()
-        // here should be navigation
-     findNavController().navigate(R.id.action_signUpFragment_to_postListFragment)
+        binding.signUpButton.setOnClickListener {
+            Log.d("SignUpFragment", "Sign Up button clicked")
+
+            val name = binding.nameEditText.text.toString()
+            val email = binding.emailEditText.text.toString()
+            val password = binding.passwordEditText.text.toString()
+            viewModel.signUpUser(name, email, password)
+
+        }
+
+        viewModel.signUpStatus.observe(viewLifecycleOwner, Observer { status ->
+            Toast.makeText(context, status.message, Toast.LENGTH_SHORT).show()
+           // Log.d("SignUpFragment", "Observer triggered: ${status.message}")
+            if (status.isSuccess) {
+                Log.d("YourTag", "aaaa")
+                findNavController().navigate(R.id.action_signUpFragment_to_postListFragment2)
+            }
+        })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

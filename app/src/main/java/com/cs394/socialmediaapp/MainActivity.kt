@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.cs394.socialmediaapp.databinding.ActivityMainBinding
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        FirebaseApp.initializeApp(this)
         // Initialize View Binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
