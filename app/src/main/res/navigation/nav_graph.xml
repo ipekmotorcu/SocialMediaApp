@@ -8,7 +8,7 @@
     <!-- LoginFragment -->
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.cs394.socialmediaapp.view.LoginFragment"
+        android:name="com.cs394.socialmediaapp.Fragment.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login">
         <action
