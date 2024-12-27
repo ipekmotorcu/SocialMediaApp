@@ -24,9 +24,13 @@ class PostListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPostListBinding.inflate(inflater, container, false)
-        setupRecyclerView() //Ensure RecyclerView
+        setupRecyclerView()
+        binding.logout.setOnClickListener {
 
-        binding.uploadButton.setOnClickListener{
+            view?.findNavController()?.navigate(R.id.action_postListFragment_to_loginFragment)
+        }
+
+        binding.fabUpload.setOnClickListener{
             view?.findNavController()?.navigate(R.id.action_postListFragment_to_newPostFragment)
         }
 

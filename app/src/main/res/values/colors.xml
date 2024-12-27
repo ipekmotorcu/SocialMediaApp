@@ -9,5 +9,6 @@
     <color name="background">#FFFFFF</color>
     <color name="surface">#F5F5F5</color>
     <color name="onSurface">#000000</color>
+    <color name="primaryColor">#6200EE</color>
 
 </resources>
