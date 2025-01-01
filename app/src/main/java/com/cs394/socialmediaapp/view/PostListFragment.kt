@@ -25,12 +25,12 @@ class PostListFragment : Fragment() {
     ): View? {
         _binding = FragmentPostListBinding.inflate(inflater, container, false)
         setupRecyclerView()
-        binding.logout.setOnClickListener {
 
+        binding.logout.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_postListFragment_to_loginFragment)
         }
 
-        binding.fabUpload.setOnClickListener{
+        binding.fabUpload.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_postListFragment_to_newPostFragment)
         }
 
@@ -41,9 +41,13 @@ class PostListFragment : Fragment() {
         val postController = PostController()
         val postList = postController.getSamplePosts()
 
-        postAdapter = PostAdapter(postList)
+        // Initialize the adapter
+        postAdapter = PostAdapter()
         binding.recyclerViewPosts.layoutManager = LinearLayoutManager(context)
         binding.recyclerViewPosts.adapter = postAdapter
+
+        // Submit the list to the adapter
+        postAdapter.submitList(postList)
     }
 
     override fun onDestroyView() {
