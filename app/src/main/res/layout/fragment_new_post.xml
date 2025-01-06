@@ -55,6 +55,12 @@
             android:layout_gravity="center"
             android:id="@+id/postButton"
             android:text="Post"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/openGalleryButton"
+            android:text="Open Gallery"/>
 
 
 
