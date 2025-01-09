@@ -43,4 +43,5 @@ Successfully implemented core functionalities, ensuring the application operates
 Contributed to the development of the application's core features and functionalities.
 **Sabina:**
 Incorporated Advanced RecyclerView into the project, enhancing the user interface for displaying lists.
+Developed the login and signup pages, ensuring a secure and smooth user experience.
 Contributed to the development of the application's core features and functionalities.
