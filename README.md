@@ -40,7 +40,7 @@ Enhanced the PostList appearance by modifying its layout.
 **Sahin Mektepli:**
 Established Firebase Realtime Database integration, enabling data uploads.
 Successfully implemented core functionalities, ensuring the application operates as intended.
-Contributed to the development of the application's core features and functionalities.
+Cleaned the codebase for the final presentation and refactored old methods in prepation.
 **Sabina:**
 Incorporated Advanced RecyclerView into the project, enhancing the user interface for displaying lists.
 Developed the login and signup pages, ensuring a secure and smooth user experience.
