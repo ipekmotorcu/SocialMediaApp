@@ -6,7 +6,7 @@
 
 ## **Features**
 - **User Authentication**: Secure login and registration system to protect user data.  
-- **Profile Management**: Users can create and manage their profiles, including updating personal information and profile pictures.  
+- **Profile Management**: Users can create profiles. 
 - **Post Creation**: Share text and media posts with your network.  
 
 ---
