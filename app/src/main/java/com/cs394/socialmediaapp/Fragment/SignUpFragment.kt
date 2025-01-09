@@ -49,7 +49,7 @@ class SignUpFragment : Fragment() {
             Toast.makeText(context, status.message, Toast.LENGTH_SHORT).show()
            // Log.d("SignUpFragment", "Observer triggered: ${status.message}")
             if (status.isSuccess) {
-                Log.d("YourTag", "aaaa")
+                Log.d("SignUpFragment", "Sign up functions is a success")
                 findNavController().navigate(R.id.action_signUpFragment_to_postListFragment2)
             }
         })

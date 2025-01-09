@@ -20,7 +20,7 @@ class PostClickedActivity : AppCompatActivity() {
         // Configure Toolbar
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-  // Handle the arrow click
+        // Handle the arrow click
         binding.toolbar.setNavigationOnClickListener {
             finish() // Close the activity and go back
         }

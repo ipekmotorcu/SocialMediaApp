@@ -21,7 +21,7 @@
     <!-- PostListFragment -->
     <fragment
         android:id="@+id/postListFragment"
-        android:name="com.cs394.socialmediaapp.view.PostListFragment"
+        android:name="com.cs394.socialmediaapp.Fragment.PostListFragment"
         android:label="PostListFragment"
         tools:layout="@layout/fragment_post_list">
 

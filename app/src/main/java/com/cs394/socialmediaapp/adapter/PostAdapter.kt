@@ -32,23 +32,17 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostDiffCallba
         return PostViewHolder(binding)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(Build.VERSION_CODES.O) //burada kullanılmıyor ama silmek istemiyorum :p
     fun convertBase64ToImageUri(context: Context?, base64String: String, fileName: String): Uri? {
         return try {
             // Decode the Base64 string into a byte array
             val decodedBytes = Base64.getDecoder().decode(base64String)
-
-            // Decode the byte array into a Bitmap
             val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-
-            // Create a temporary file to store the image
             val file = File(context?.cacheDir, fileName)
 
-            // Save the Bitmap to the file
             FileOutputStream(file).use { fos ->
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
             }
-
             // Return the Uri for the saved image
             Uri.fromFile(file)
         } catch (e: Exception) {
@@ -62,9 +56,7 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostDiffCallba
         val post = getItem(position)
         Log.d("PostAdapter", "username ${post.username} uri ${post.postUri}")
         with(holder.binding) {
-            //imageViewPost.setImageResource(post.downloadUrl) // Temporary placeholder
             imageViewPost.setImageURI(post.postUri)
-
 
             textViewUsername.text = post.username
             textViewCaption.text = post.caption

@@ -35,7 +35,6 @@ class SignUpViewModel : ViewModel() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Save user information in Firestore
                     val userId = auth.currentUser?.uid ?: ""
                     val user = hashMapOf(
                         "name" to name,
