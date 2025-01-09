@@ -9,6 +9,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
@@ -77,34 +78,42 @@ class NewPostViewModel: ViewModel() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun convertBase64ToImageUri(context: Context?, base64String: String, fileName: String): Uri? {
+    @SuppressLint("UseCompatLoadingForDrawables") //bu silinebilir artık
+    fun convertDrawableToBase64(context: Context?, drawableResId: Int): String? {
         return try {
-            // Decode the Base64 string into a byte array
-            val decodedBytes = Base64.getDecoder().decode(base64String)
+            // Get the drawable from resources
+            val drawable = context?.resources?.getDrawable(drawableResId, null)
 
-            // Decode the byte array into a Bitmap
-            val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+            // Convert the drawable to a Bitmap
+            val bitmap = (drawable as BitmapDrawable).bitmap
 
-            // Create a temporary file to store the image
-            val file = File(context?.cacheDir, fileName)
+            // Convert the Bitmap to a byte array
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
+            val byteArray = byteArrayOutputStream.toByteArray()
 
-            // Save the Bitmap to the file
-            FileOutputStream(file).use { fos ->
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-            }
-
-            // Return the Uri for the saved image
-            Uri.fromFile(file)
+            // Encode the byte array to a Base64 string
+            Base64.getEncoder().encodeToString(byteArray)
         } catch (e: Exception) {
             e.printStackTrace()
-            null // Return null if there is an error
+            null
         }
     }
+
+
+
+
+
 
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun uploadImage(username: String, caption:String, context: Context?) {
         val uri = _imageUri.value
+        //
+        //val filePath = "/Users/dulumrae/AndroidStudioProjects/ALLAHIM/SocialMediaApp/app/src/main/res/drawable/sahil.jpg"
+        //val uri = Uri.fromFile(File(filePath))
+
+        //
         if (uri != null) {
             // Convert image to Base64 string
             val base64String = convertImageToBase64(uri, context)

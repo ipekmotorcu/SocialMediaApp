@@ -1,13 +1,16 @@
 package com.cs394.socialmediaapp
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.cs394.socialmediaapp.databinding.ActivityMainBinding
+import com.cs394.socialmediaapp.viewmodel.NewPostViewModel
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +21,9 @@ class MainActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
 
         //bunlar silinecek, DB'i denemeye çalışıyorum sadece
+        /*
         val database = FirebaseDatabase.getInstance("https://socialmediaapp-cc3ad-default-rtdb.europe-west1.firebasedatabase.app/")
         val ref = database.reference.child("addendum")
-
         ref.setValue("this should be the second entry").addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d("MainActivity", "Data added successfully!")
@@ -28,10 +31,10 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MainActivity", "Failed to add data.", task.exception)
             }
         }
-        val TAG: String? = "TAGGG"
+        val TAG: String? = "TAG"
         val debugText = ref.toString()
         Log.d(TAG, debugText)
-
+        */
 
 
         // Initialize View Binding

@@ -17,6 +17,7 @@ import com.cs394.socialmediaapp.viewmodel.NewPostViewModel
 import com.cs394.socialmediaapp.databinding.FragmentNewPostBinding
 import com.google.firebase.database.FirebaseDatabase
 import java.io.InputStream
+import kotlin.reflect.typeOf
 
 class NewPostFragment : Fragment() {
     private var _binding: FragmentNewPostBinding? = null
@@ -52,14 +53,11 @@ class NewPostFragment : Fragment() {
 
             val caption: String = binding.addCaption.text.toString() //bu orada yazan metni alsa gerek!
 
-            viewModel.uploadImage(username = "admin", caption = caption, context)
-            //username kısmını
-            // val caption = binding.addCaption.text.toString() //yamulmuyorsam bu sayfadan postliste geçmek lazım
+            viewModel.uploadImage(username = "emin", caption = caption, context)
 
 
 
-
-            //view?.findNavController()?.navigate(R.id.action_newPostFragment_to_postListFragment)
+            view?.findNavController()?.navigate(R.id.action_newPostFragment_to_postListFragment)
         }
     }
 

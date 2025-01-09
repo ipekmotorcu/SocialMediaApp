@@ -13,7 +13,7 @@ class PostController {
                 caption = "This is a sample post",
                 likes = 10,
                 userid = "user1_id",
-                downloadUrl = R.drawable.book
+                downloadUrl = R.drawable.book1
             ),
             Post(
                 username = "Sabina",
